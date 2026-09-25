@@ -1,0 +1,29 @@
+cliente_id,nombre,pais_destino,tipo
+1,"Rodriguez, Figueroa and Sanchez",Países Bajos,Retailer
+2,Doyle Ltd,Rusia,Broker
+3,"Mcclain, Miller and Henderson",USA,Retailer
+4,Davis and Sons,Canadá,Retailer
+5,"Guzman, Hoffman and Baldwin",USA,Broker
+6,"Gardner, Robinson and Lawrence",Países Bajos,Retailer
+7,Blake and Sons,USA,Importador
+8,"Henderson, Ramirez and Lewis",Rusia,Importador
+9,Garcia-James,España,Importador
+10,Abbott-Munoz,Países Bajos,Importador
+11,Blair PLC,Reino Unido,Importador
+12,Dudley Group,España,Importador
+13,Arnold Ltd,USA,Retailer
+14,"Mcclure, Ward and Lee",Canadá,Importador
+15,Williams and Sons,USA,Importador
+16,Galloway-Wyatt,Reino Unido,Broker
+17,James Group,USA,Importador
+18,"Flowers, Martin and Kelly",Rusia,Retailer
+19,"Adams, Zuniga and Wong",USA,Importador
+20,"Reid, Ferguson and Sanchez",Rusia,Retailer
+21,Gray-Mayo,Países Bajos,Broker
+22,"Watts, Robinson and Nguyen",USA,Importador
+23,Perez Inc,Reino Unido,Importador
+24,Morales-Jones,USA,Retailer
+25,"Walter, Edwards and Rios",Países Bajos,Broker
+26,Wilkerson-Day,Rusia,Broker
+27,Baker and Sons,Canadá,Broker
+28,"Hoffman, Baker and Richards",USA,Importador
