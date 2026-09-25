@@ -42,7 +42,7 @@ Conexión: `localhost`, puerto `5433`, base/usuario/contraseña `floricola`.
 
 - [x] Repo y estructura
 - [x] PostgreSQL en Docker y esquema inicial
-- [ ] Simulador de datos (Python)
+- [x] Simulador de datos (Python)
 - [ ] Limpieza y análisis en SQL
 - [ ] Dashboard en Power BI
 - [ ] Forecasting de demanda
