@@ -1,21 +1,21 @@
 cliente_id,nombre,pais_destino,tipo
 1,"Rodriguez, Figueroa and Sanchez",Reino Unido,Importador
 2,Doyle Ltd,Rusia,Broker
-3,"Mcclain, Miller and Henderson",USA,Importador
-4,Davis and Sons,USA,Broker
+3,"Mcclain, Miller and Henderson",Usa,Importador
+4,Davis and Sons,U.S.A.,Broker
 5,"Guzman, Hoffman and Baldwin",Países Bajos,Importador
 6,"Gardner, Robinson and Lawrence",USA,Broker
-7,Blake and Sons,Canadá,Importador
+7,BLAKE AND SONS,Canadá,Importador
 8,"Henderson, Ramirez and Lewis",USA,Retailer
 9,Garcia-James,Rusia,Importador
 10,Abbott-Munoz,USA,Importador
-11,Blair PLC,España,Importador
+11,  Blair PLC  ,España,Importador  
 12,Dudley Group,Países Bajos,Retailer
 13,Arnold Ltd,Rusia,Retailer
 14,"Mcclure, Ward and Lee",Países Bajos,Importador
 15,Williams and Sons,Canadá,Broker
 16,Galloway-Wyatt,Canadá,Retailer
-17,James Group,USA,Broker
+17,James Group,usa ,Broker
 18,"Flowers, Martin and Kelly",Reino Unido,Broker
 19,"Adams, Zuniga and Wong",Países Bajos,Importador
 20,"Reid, Ferguson and Sanchez",Rusia,Importador
@@ -23,7 +23,12 @@ cliente_id,nombre,pais_destino,tipo
 22,"Watts, Robinson and Nguyen",USA,Retailer
 23,Perez Inc,Rusia,Broker
 24,Morales-Jones,Reino Unido,Importador
-25,"Walter, Edwards and Rios",USA,Importador
+25,"Walter, Edwards and Rios",usa ,Importador
 26,Wilkerson-Day,Países Bajos,Broker
-27,Baker and Sons,España,Retailer
+27,Baker and Sons,España,Retailer  
 28,"Hoffman, Baker and Richards",USA,Retailer
+29,Abbott-Munoz,USA,Importador
+30,Wilkerson-Day,Países Bajos,Broker
+31,Garcia-James,Rusia,Importador
+32,"Watts, Robinson and Nguyen",USA,Retailer
+33,"Rodriguez, Figueroa and Sanchez",Reino Unido,Importador
