@@ -29,7 +29,13 @@ print(df_variedad)
 # --- bloque ---
 N_BLOQUES = 18
 
-bloque_variedad_id = np.random.choice(df_variedad["variedad_id"], size=N_BLOQUES)
+# Garantizamos que las 8 variedades tengan al menos 1 bloque asignado
+n_variedades = len(df_variedad)
+asignacion_forzada = df_variedad["variedad_id"].values  # una por cada variedad
+asignacion_libre = np.random.choice(df_variedad["variedad_id"], size=N_BLOQUES - n_variedades)
+bloque_variedad_id = np.concatenate([asignacion_forzada, asignacion_libre])
+np.random.shuffle(bloque_variedad_id)  # para que no queden en orden 1,2,3...8,random...
+
 hectareas = np.round(np.random.uniform(1.5, 8.0, size=N_BLOQUES), 2)
 
 df_bloque = pd.DataFrame({
