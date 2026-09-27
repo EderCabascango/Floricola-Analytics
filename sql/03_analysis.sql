@@ -39,3 +39,37 @@ FROM cliente
 GROUP BY nombre
 HAVING COUNT(*) > 1;
 
+-- ============================================================
+-- Defecto 4b: verificar que todos los precios NULL
+-- pueden ser imputados usando el promedio de su variedad
+-- ============================================================
+
+WITH promedios AS (
+
+    SELECT
+        variedad_id,
+        AVG(precio_tallo) AS precio_promedio
+    FROM venta
+    WHERE precio_tallo IS NOT NULL
+    GROUP BY variedad_id
+
+),
+
+resultado AS (
+
+    SELECT
+        v.venta_id,
+        v.variedad_id,
+        ROUND(
+            COALESCE(v.precio_tallo, p.precio_promedio),
+            2
+        ) AS precio_tallo_limpio
+    FROM venta v
+    LEFT JOIN promedios p
+        ON v.variedad_id = p.variedad_id
+
+)
+
+SELECT COUNT(*) AS precios_sin_imputar
+FROM resultado
+WHERE precio_tallo_limpio IS NULL;

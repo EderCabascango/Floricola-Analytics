@@ -78,8 +78,3 @@ Cada tabla hija se generó tomando IDs que **ya existían** en su tabla padre (e
 ### 5. Pipeline de carga
 Python generó CSV en `data/raw/` (capa intermedia auditable, puedes abrirlos en Excel antes de tocar la base), y un script separado (`03_cargar_postgres.py`) los cargó a Postgres **en el orden correcto** (dimensiones primero, luego `cosecha`), usando `SQLAlchemy` para la conexión y `pandas.to_sql()` para la inserción masiva.
 
----
-
-## Por qué esto importa para tu portafolio
-
-Un dataset que se ve "hecho a mano" (números redondos, sin variación, sin correlaciones) se nota falso de inmediato. Lo que construiste tiene: estacionalidad real y verificable con SQL (como viste en la consulta de promedios por semana), correlaciones sutiles entre variables, cierta imperfección intencional (el 15% de días sin cosecha, el ruido del ±8%), y trazabilidad completa de cómo se generó cada número. Eso es lo que un revisor técnico reconoce como un ejercicio serio, no un tutorial copiado.
