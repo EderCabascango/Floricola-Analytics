@@ -16,8 +16,10 @@ DB_URL = (
 engine = create_engine(DB_URL)
 
 # Orden obligatorio: dimensiones primero, luego cosecha que depende de bloque
-TABLAS_EN_ORDEN = ["variedad", "bloque", "cuarto_frio", "cliente", "aerolinea", "agencia_carga", "cosecha"]
-
+TABLAS_EN_ORDEN = [
+    "variedad", "bloque", "cuarto_frio", "cliente", "aerolinea", "agencia_carga",
+    "cosecha", "venta", "inventario_movimiento", "despacho"
+]
 for tabla in TABLAS_EN_ORDEN:
     df = pd.read_csv(RAW_DIR / f"{tabla}.csv")
     df.to_sql(tabla, engine, if_exists="append", index=False)
