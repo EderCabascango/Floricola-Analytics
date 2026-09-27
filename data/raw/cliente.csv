@@ -1,29 +1,29 @@
 cliente_id,nombre,pais_destino,tipo
-1,"Rodriguez, Figueroa and Sanchez",USA,Retailer
-2,Doyle Ltd,Canadá,Broker
-3,"Mcclain, Miller and Henderson",Países Bajos,Broker
+1,"Rodriguez, Figueroa and Sanchez",Reino Unido,Importador
+2,Doyle Ltd,Rusia,Broker
+3,"Mcclain, Miller and Henderson",USA,Importador
 4,Davis and Sons,USA,Broker
-5,"Guzman, Hoffman and Baldwin",España,Retailer
-6,"Gardner, Robinson and Lawrence",España,Broker
-7,Blake and Sons,Rusia,Importador
-8,"Henderson, Ramirez and Lewis",USA,Importador
+5,"Guzman, Hoffman and Baldwin",Países Bajos,Importador
+6,"Gardner, Robinson and Lawrence",USA,Broker
+7,Blake and Sons,Canadá,Importador
+8,"Henderson, Ramirez and Lewis",USA,Retailer
 9,Garcia-James,Rusia,Importador
-10,Abbott-Munoz,Reino Unido,Importador
-11,Blair PLC,Países Bajos,Importador
-12,Dudley Group,Países Bajos,Importador
-13,Arnold Ltd,USA,Importador
-14,"Mcclure, Ward and Lee",Canadá,Importador
-15,Williams and Sons,USA,Importador
-16,Galloway-Wyatt,Reino Unido,Broker
+10,Abbott-Munoz,USA,Importador
+11,Blair PLC,España,Importador
+12,Dudley Group,Países Bajos,Retailer
+13,Arnold Ltd,Rusia,Retailer
+14,"Mcclure, Ward and Lee",Países Bajos,Importador
+15,Williams and Sons,Canadá,Broker
+16,Galloway-Wyatt,Canadá,Retailer
 17,James Group,USA,Broker
 18,"Flowers, Martin and Kelly",Reino Unido,Broker
-19,"Adams, Zuniga and Wong",Canadá,Retailer
-20,"Reid, Ferguson and Sanchez",Países Bajos,Broker
+19,"Adams, Zuniga and Wong",Países Bajos,Importador
+20,"Reid, Ferguson and Sanchez",Rusia,Importador
 21,Gray-Mayo,USA,Retailer
-22,"Watts, Robinson and Nguyen",Países Bajos,Retailer
-23,Perez Inc,Rusia,Importador
-24,Morales-Jones,USA,Importador
-25,"Walter, Edwards and Rios",Rusia,Importador
-26,Wilkerson-Day,USA,Broker
-27,Baker and Sons,Rusia,Broker
-28,"Hoffman, Baker and Richards",USA,Broker
+22,"Watts, Robinson and Nguyen",USA,Retailer
+23,Perez Inc,Rusia,Broker
+24,Morales-Jones,Reino Unido,Importador
+25,"Walter, Edwards and Rios",USA,Importador
+26,Wilkerson-Day,Países Bajos,Broker
+27,Baker and Sons,España,Retailer
+28,"Hoffman, Baker and Richards",USA,Retailer

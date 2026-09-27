@@ -9,14 +9,47 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # --- variedad ---
 variedades = [
-    {"nombre": "Freedom",        "tipo": "Rosa",       "color": "Rojo"},
-    {"nombre": "Explorer",       "tipo": "Rosa",       "color": "Rojo"},
-    {"nombre": "Vendela",        "tipo": "Rosa",       "color": "Blanco"},
-    {"nombre": "Mondial",        "tipo": "Rosa",       "color": "Blanco"},
-    {"nombre": "Pink Floyd",     "tipo": "Rosa",       "color": "Rosado"},
-    {"nombre": "Circus",         "tipo": "Rosa",       "color": "Bicolor"},
-    {"nombre": "Million Star",   "tipo": "Gypsophila", "color": "Blanco"},
-    {"nombre": "Clavel Estandar","tipo": "Clavel",     "color": "Rojo"},
+    {"nombre": "Freedom",         "tipo": "Rosa",       "color": "Rojo"},
+    {"nombre": "Explorer",        "tipo": "Rosa",       "color": "Rojo"},
+    {"nombre": "Vendela",         "tipo": "Rosa",       "color": "Blanco"},
+    {"nombre": "Mondial",         "tipo": "Rosa",       "color": "Blanco"},
+    {"nombre": "Pink Floyd",      "tipo": "Rosa",       "color": "Rosado"},
+    {"nombre": "Circus",          "tipo": "Rosa",       "color": "Bicolor"},
+    {"nombre": "Million Star",    "tipo": "Gypsophila", "color": "Blanco"},
+    {"nombre": "Clavel Estandar", "tipo": "Clavel",     "color": "Rojo"},
+    {"nombre": "Aloha",           "tipo": "Rosa", "color": "Rosado"},
+    {"nombre": "Antique Explorer","tipo": "Rosa", "color": "Rojo"},
+    {"nombre": "Arctica",         "tipo": "Rosa", "color": "Blanco"},
+    {"nombre": "Art Deco",        "tipo": "Rosa", "color": "Bicolor"},
+    {"nombre": "Atomic",          "tipo": "Rosa", "color": "Rojo"},
+    {"nombre": "Barbiecore",      "tipo": "Rosa", "color": "Rosado"},
+    {"nombre": "Bellalinda Love", "tipo": "Rosa", "color": "Rosado"},
+    {"nombre": "Blush",           "tipo": "Rosa", "color": "Rosado"},
+    {"nombre": "Cabaret",         "tipo": "Rosa", "color": "Bicolor"},
+    {"nombre": "Candlelight",     "tipo": "Rosa", "color": "Amarillo"},
+    {"nombre": "Cherry Brandy",   "tipo": "Rosa", "color": "Naranja"},
+    {"nombre": "Coffee Break",    "tipo": "Rosa", "color": "Cafe"},
+    {"nombre": "Cool Water",      "tipo": "Rosa", "color": "Lila"},
+    {"nombre": "Deep Purple",     "tipo": "Rosa", "color": "Morado"},
+    {"nombre": "Fuego",           "tipo": "Rosa", "color": "Naranja"},
+    {"nombre": "Goldfinch",       "tipo": "Rosa", "color": "Amarillo"},
+    {"nombre": "Green Romance",   "tipo": "Rosa", "color": "Verde"},
+    {"nombre": "High Orange Magic","tipo": "Rosa","color": "Naranja"},
+    {"nombre": "Hot Sauce",       "tipo": "Rosa", "color": "Rojo"},
+    {"nombre": "Jessika",         "tipo": "Rosa", "color": "Rosado"},
+    {"nombre": "Lemonade",        "tipo": "Rosa", "color": "Amarillo"},
+    {"nombre": "Malibu",          "tipo": "Rosa", "color": "Lila"},
+    {"nombre": "Miss White",      "tipo": "Rosa", "color": "Blanco"},
+    {"nombre": "Moody Blues",     "tipo": "Rosa", "color": "Lila"},
+    {"nombre": "Orange Crush",    "tipo": "Rosa", "color": "Naranja"},
+    {"nombre": "Pink Mondial",    "tipo": "Rosa", "color": "Rosado"},
+    {"nombre": "Purple Moon",     "tipo": "Rosa", "color": "Morado"},
+    {"nombre": "Queens Crown",    "tipo": "Rosa", "color": "Rojo"},
+    {"nombre": "Red Paris",       "tipo": "Rosa", "color": "Rojo"},
+    {"nombre": "Shocking Blue",   "tipo": "Rosa", "color": "Lila"},
+    {"nombre": "Sunset Glory",    "tipo": "Rosa", "color": "Naranja"},
+    {"nombre": "Wasabi",          "tipo": "Rosa", "color": "Verde"},
+    {"nombre": "White Ohara",     "tipo": "Rosa", "color": "Blanco"},
 ]
 
 df_variedad = pd.DataFrame(variedades)
@@ -27,7 +60,7 @@ print(f"variedad.csv generado: {len(df_variedad)} filas")
 print(df_variedad)
 
 # --- bloque ---
-N_BLOQUES = 18
+N_BLOQUES = 70
 
 # Garantizamos que las 8 variedades tengan al menos 1 bloque asignado
 n_variedades = len(df_variedad)
