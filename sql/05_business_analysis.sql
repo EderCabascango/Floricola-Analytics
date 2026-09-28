@@ -259,19 +259,32 @@ WHERE c2026.cliente_id IS NULL;
 
 
 -- ============================================================
--- SIGUIENTE PREGUNTA — PENDIENTE
+-- PREGUNTA DE NEGOCIO 8
 -- ¿Qué clientes generaron mayor valor de ventas?
---
--- La idea será:
---   valor_venta = tallos * precio_tallo
---
--- Relacionar:
---   venta_limpia → cliente_limpio
---
--- Agrupar por cliente y ordenar por valor total DESC.
---
--- Se continuará en la siguiente sesión.
 -- ============================================================
+
+SELECT
+    cl.cliente_id,
+    cl.nombre,
+    SUM(
+        ve.tallos::numeric * ve.precio_tallo::numeric
+    ) AS venta_total
+FROM venta_limpia AS ve
+JOIN cliente_limpio AS cl
+    ON ve.cliente_id = cl.cliente_id
+GROUP BY
+    cl.cliente_id,
+    cl.nombre
+ORDER BY venta_total DESC;
+
+Respuesta: 
+2	Doyle Ltd	7687403.10
+16	Galloway-Wyatt	7314806.53
+28	Hoffman, Baker And Richards	7304880.89
+
+18	Flowers, Martin And Kelly	6191541.51
+1	Rodriguez, Figueroa And Sanchez	6072887.34
+13	Arnold Ltd	6045269.07
 
 
 -- ============================================================

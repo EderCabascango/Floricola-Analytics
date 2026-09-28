@@ -378,10 +378,10 @@ Antes de escribir una consulta hay que identificar:
 - [x] Merma por variedad
 - [x] Porcentaje de merma por variedad
 - [x] Análisis de clientes 2025 vs 2026
-
+- [x] Valor de ventas por cliente
 ### Pendiente
 
-- [ ] Valor de ventas por cliente
+
 - [ ] Otras preguntas comerciales
 - [ ] Análisis temporal
 - [ ] Análisis de temporadas altas
