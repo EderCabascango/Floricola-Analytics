@@ -22,7 +22,7 @@ TABLAS_EN_ORDEN = [
 ]
 for tabla in TABLAS_EN_ORDEN:
     df = pd.read_csv(RAW_DIR / f"{tabla}.csv")
-    df.to_sql(tabla, engine, if_exists="append", index=False)
-    print(f"{tabla}: {len(df)} filas cargadas")
+    df.to_sql(tabla, engine, schema="bronze", if_exists="append", index=False)
+    print(f"bronze.{tabla}: {len(df)} filas cargadas")
 
-print("\nCarga completa.")
+print("\nCarga en capa Bronze completa.")
