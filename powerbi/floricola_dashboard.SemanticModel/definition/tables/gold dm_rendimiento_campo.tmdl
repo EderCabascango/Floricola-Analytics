@@ -1,0 +1,87 @@
+table 'gold dm_rendimiento_campo'
+	lineageTag: d8394dd5-7421-41f3-aac2-9855f63206e6
+
+	column bloque_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 93efb3c8-3e39-49a4-96a7-77b8d865dd7f
+		summarizeBy: sum
+		sourceColumn: bloque_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_bloque
+		dataType: string
+		lineageTag: 8fe5d5ed-5767-4513-9ad8-15d4a76e4c8f
+		summarizeBy: none
+		sourceColumn: codigo_bloque
+
+		annotation SummarizationSetBy = Automatic
+
+	column hectareas
+		dataType: double
+		lineageTag: 7f9caeb6-e1d7-496c-9a1f-8273b4717d5f
+		summarizeBy: sum
+		sourceColumn: hectareas
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column variedad_nombre
+		dataType: string
+		lineageTag: 58ea12b6-c425-4e25-bbe7-a4f92f6402d6
+		summarizeBy: none
+		sourceColumn: variedad_nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column tallos_cosechados
+		dataType: int64
+		formatString: 0
+		lineageTag: e151b234-8062-46f8-aaaa-62f4a1eaa44b
+		summarizeBy: sum
+		sourceColumn: tallos_cosechados
+
+		annotation SummarizationSetBy = Automatic
+
+	column tallos_por_hectarea
+		dataType: double
+		lineageTag: f5746840-027b-4cf3-b404-33645ab6795d
+		summarizeBy: sum
+		sourceColumn: tallos_por_hectarea
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tallos_merma
+		dataType: int64
+		formatString: 0
+		lineageTag: d5cbb1e6-00fd-4921-8fef-45894458cd5c
+		summarizeBy: sum
+		sourceColumn: tallos_merma
+
+		annotation SummarizationSetBy = Automatic
+
+	column porcentaje_merma
+		dataType: double
+		lineageTag: 21cc6dbc-2665-43a2-aff4-2e01bdfc4f77
+		summarizeBy: sum
+		sourceColumn: porcentaje_merma
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'gold dm_rendimiento_campo' = m
+		mode: import
+		source =
+				let
+				    Origen = PostgreSQL.Database("localhost:5433", "floricola"),
+				    gold_dm_rendimiento_campo = Origen{[Schema="gold",Item="dm_rendimiento_campo"]}[Data]
+				in
+				    gold_dm_rendimiento_campo
+
+	annotation PBI_ResultType = Table
+

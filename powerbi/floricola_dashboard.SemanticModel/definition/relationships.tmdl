@@ -1,0 +1,17 @@
+relationship 5a346677-d853-4ae1-8769-988d74133fc9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Dim_Date.Date
+	toColumn: LocalDateTable_339b8588-6ec1-4015-940a-da987ab22020.Date
+
+relationship f3651f19-653f-012b-ee97-b66477901809
+	fromColumn: 'gold feat_demanda_forecasting'.fecha
+	toColumn: Dim_Date.Date
+
+relationship 74955f57-d0e7-dc16-ae6e-51e68478a7db
+	fromColumn: 'gold dm_ventas_mensual'.mes
+	toColumn: Dim_Date.Date
+
+relationship 89fc2dd7-75b5-202e-328a-81fc51631aa8
+	fromColumn: Dim_Date.AnioSemana
+	toColumn: 'gold dm_estacionalidad_semanal'.AnioSemana
+

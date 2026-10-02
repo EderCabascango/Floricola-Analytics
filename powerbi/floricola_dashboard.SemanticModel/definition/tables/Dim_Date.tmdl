@@ -1,0 +1,111 @@
+table Dim_Date
+	lineageTag: 17dd0e50-7d09-4471-a357-f5c04c4dd42c
+
+	column Date
+		formatString: General Date
+		lineageTag: a5b1628d-2105-49aa-a8ff-a8b0ab007167
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variación
+			isDefault
+			relationship: 5a346677-d853-4ae1-8769-988d74133fc9
+			defaultHierarchy: LocalDateTable_339b8588-6ec1-4015-940a-da987ab22020.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Anio
+		formatString: 0
+		lineageTag: c8b133c7-11f9-4a47-b09f-fa6a36466670
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Anio]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumeroMes
+		formatString: 0
+		lineageTag: 3326af8a-0703-4f51-bf46-e722c8d82381
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [NumeroMes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NombreMes
+		lineageTag: e31fd26b-0560-4c64-8cc8-d5bf0f630cc2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NombreMes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NombreMesCorto
+		lineageTag: 4ea5fc7e-72b7-4d66-b8bb-3cb9d4dbd37e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NombreMesCorto]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre
+		lineageTag: 3e3212d6-21dd-44bf-b946-f170299e43cd
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Trimestre]
+
+		annotation SummarizationSetBy = Automatic
+
+	column SemanaISO
+		formatString: 0
+		lineageTag: 902f6283-4f63-4c86-9dd4-62f211056028
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [SemanaISO]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiaSemana
+		lineageTag: 6e2dafe0-ff31-4455-b042-11c49a390c47
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DiaSemana]
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnioMes
+		lineageTag: 8b72e81f-4a5d-4a89-8101-ae15b6be0485
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [AnioMes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnioSemana = [Anio] & "-" & FORMAT([SemanaISO], "00")
+		lineageTag: 50b91c7a-eeac-4eaf-9c86-b6e0417c44c1
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Date = calculated
+		mode: import
+		source =
+				
+				VAR FechaInicio = DATE(2023, 6, 1)
+				VAR FechaFin = DATE(2026, 6, 30)
+				RETURN
+				ADDCOLUMNS(
+				    CALENDAR(FechaInicio, FechaFin),
+				    "Anio", YEAR([Date]),
+				    "NumeroMes", MONTH([Date]),
+				    "NombreMes", FORMAT([Date], "MMMM"),
+				    "NombreMesCorto", FORMAT([Date], "MMM"),
+				    "Trimestre", "Q" & FORMAT([Date], "Q"),
+				    "SemanaISO", WEEKNUM([Date], 2),
+				    "DiaSemana", FORMAT([Date], "dddd"),
+				    "AnioMes", FORMAT([Date], "YYYY-MM")
+				)
+
+	annotation PBI_Id = 6dd5492a68dd4d74aa43b83160b4905f
+

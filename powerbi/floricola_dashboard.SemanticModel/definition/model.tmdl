@@ -1,0 +1,27 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-ES
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["gold dm_cliente_rfm","gold dm_estacionalidad_semanal","gold dm_rendimiento_campo","gold dm_ventas_mensual","gold feat_demanda_forecasting"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'gold dm_cliente_rfm'
+ref table 'gold dm_estacionalidad_semanal'
+ref table 'gold dm_rendimiento_campo'
+ref table 'gold dm_ventas_mensual'
+ref table DateTableTemplate_99d57414-1dff-4d18-bfd9-87c6e20b8586
+ref table 'gold feat_demanda_forecasting'
+ref table Dim_Date
+ref table LocalDateTable_339b8588-6ec1-4015-940a-da987ab22020
+ref table _Medidas
+
+ref cultureInfo es-ES
+

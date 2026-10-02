@@ -1,0 +1,119 @@
+table 'gold dm_cliente_rfm'
+	lineageTag: 3747bdad-1452-409f-9c0b-ebe4789be958
+
+	column cliente_id
+		dataType: int64
+		formatString: 0
+		lineageTag: dfe76eff-379c-4e86-ba7a-592218e6c92a
+		summarizeBy: sum
+		sourceColumn: cliente_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column cliente_nombre
+		dataType: string
+		lineageTag: 8392f217-1817-4b1d-8134-3875863d7e69
+		summarizeBy: none
+		sourceColumn: cliente_nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column pais_destino
+		dataType: string
+		lineageTag: 0eb01f82-c7b6-4e52-83f4-073fc6ce69fd
+		summarizeBy: none
+		sourceColumn: pais_destino
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_cliente
+		dataType: string
+		lineageTag: 2ed19b07-b11c-407e-b42e-3265694ce21d
+		summarizeBy: none
+		sourceColumn: tipo_cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column recencia_dias
+		dataType: int64
+		formatString: 0
+		lineageTag: b4d2ab7e-0bba-441e-960f-996cf382c229
+		summarizeBy: sum
+		sourceColumn: recencia_dias
+
+		annotation SummarizationSetBy = Automatic
+
+	column frecuencia
+		dataType: int64
+		formatString: 0
+		lineageTag: 030559ad-e374-43a2-b517-91736c2b89d3
+		summarizeBy: sum
+		sourceColumn: frecuencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column valor_monetario
+		dataType: double
+		lineageTag: 3d627a82-21be-41c0-817d-57f2782ede8b
+		summarizeBy: sum
+		sourceColumn: valor_monetario
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column r_score
+		dataType: int64
+		formatString: 0
+		lineageTag: f683f238-ccbf-4433-9b9e-35e04c4abca4
+		summarizeBy: sum
+		sourceColumn: r_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column f_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 003eddc6-3b30-40a1-8d76-fd0684d38c6f
+		summarizeBy: sum
+		sourceColumn: f_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column m_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 80f73ef5-9f48-426e-a6f9-d21366c6f19d
+		summarizeBy: sum
+		sourceColumn: m_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column rfm_total_score
+		dataType: int64
+		formatString: 0
+		lineageTag: fdbd4667-7b77-4372-b933-b4fe3b967562
+		summarizeBy: sum
+		sourceColumn: rfm_total_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column segmento_cliente
+		dataType: string
+		lineageTag: 1192b77c-5c8f-4e1f-94db-e90042e3fffc
+		summarizeBy: none
+		sourceColumn: segmento_cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'gold dm_cliente_rfm' = m
+		mode: import
+		source =
+				let
+				    Origen = PostgreSQL.Database("localhost:5433", "floricola"),
+				    gold_dm_cliente_rfm = Origen{[Schema="gold",Item="dm_cliente_rfm"]}[Data]
+				in
+				    gold_dm_cliente_rfm
+
+	annotation PBI_ResultType = Table
+

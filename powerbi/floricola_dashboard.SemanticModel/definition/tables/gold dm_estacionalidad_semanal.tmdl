@@ -1,0 +1,74 @@
+table 'gold dm_estacionalidad_semanal'
+	lineageTag: 960ed1c8-c03c-43ca-a2a8-4a0161c00974
+
+	column anio
+		dataType: int64
+		formatString: 0
+		lineageTag: 9fe77c42-f6e4-4b19-ad4d-052deb8f8ead
+		summarizeBy: none
+		sourceColumn: anio
+
+		annotation SummarizationSetBy = Automatic
+
+	column semana_iso
+		dataType: int64
+		formatString: 0
+		lineageTag: 980fb54c-8b1e-409c-bd5d-b6909b871835
+		summarizeBy: none
+		sourceColumn: semana_iso
+
+		annotation SummarizationSetBy = Automatic
+
+	column temporada
+		dataType: string
+		lineageTag: 73ec360b-745b-4b57-bbcf-52f2462de6cf
+		summarizeBy: none
+		sourceColumn: temporada
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_pedidos
+		dataType: int64
+		formatString: 0
+		lineageTag: 52a80589-5640-4d83-a928-45892d2eb9e4
+		summarizeBy: none
+		sourceColumn: total_pedidos
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_tallos
+		dataType: int64
+		formatString: 0
+		lineageTag: 5497e299-d8cd-43e0-b8b1-93a658c3b7b2
+		summarizeBy: none
+		sourceColumn: total_tallos
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_valor_ventas
+		dataType: double
+		lineageTag: 3050f44c-1db9-4558-b90f-9fa33d780693
+		summarizeBy: none
+		sourceColumn: total_valor_ventas
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AnioSemana = [anio] & "-" & FORMAT([semana_iso], "00")
+		lineageTag: b20ee8b8-90b7-4045-b1f2-d03df0b49cf7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'gold dm_estacionalidad_semanal' = m
+		mode: import
+		source =
+				let
+				    Origen = PostgreSQL.Database("localhost:5433", "floricola"),
+				    gold_dm_estacionalidad_semanal = Origen{[Schema="gold",Item="dm_estacionalidad_semanal"]}[Data]
+				in
+				    gold_dm_estacionalidad_semanal
+
+	annotation PBI_ResultType = Table
+

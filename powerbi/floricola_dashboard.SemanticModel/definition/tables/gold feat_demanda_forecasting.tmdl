@@ -1,0 +1,124 @@
+table 'gold feat_demanda_forecasting'
+	lineageTag: 74c0fd75-5804-407b-86fd-7242cb0ed891
+
+	column fecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: abcb1639-9747-40b8-9409-c3071d633c1d
+		summarizeBy: none
+		sourceColumn: fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column variedad_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e7a6e25-a399-42ff-baae-94e0f752ae55
+		summarizeBy: sum
+		sourceColumn: variedad_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column variedad_nombre
+		dataType: string
+		lineageTag: 442e3f24-025d-4897-86be-912b12ee0bc8
+		summarizeBy: none
+		sourceColumn: variedad_nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column variedad_tipo
+		dataType: string
+		lineageTag: 57a4e046-0f12-4ac2-920b-a21cdffd8386
+		summarizeBy: none
+		sourceColumn: variedad_tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	column demanda_tallos
+		dataType: int64
+		formatString: 0
+		lineageTag: 77402cfa-bf36-4d6c-879b-aad71afbd77c
+		summarizeBy: sum
+		sourceColumn: demanda_tallos
+
+		annotation SummarizationSetBy = Automatic
+
+	column ingresos_totales
+		dataType: double
+		lineageTag: 9d3f243b-a1cd-48c2-9453-067166d6133e
+		summarizeBy: sum
+		sourceColumn: ingresos_totales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column precio_promedio
+		dataType: double
+		lineageTag: 1e49540f-a810-4b97-9648-ddcc81a95452
+		summarizeBy: sum
+		sourceColumn: precio_promedio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dia_semana
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b74bbef-531f-47b4-8e35-9c17a66381da
+		summarizeBy: sum
+		sourceColumn: dia_semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column mes
+		dataType: int64
+		formatString: 0
+		lineageTag: f645359a-fb54-4605-abf3-08de32de2040
+		summarizeBy: sum
+		sourceColumn: mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column semana_iso
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b4fcdfc-7426-4981-bda7-c9b170180d3d
+		summarizeBy: sum
+		sourceColumn: semana_iso
+
+		annotation SummarizationSetBy = Automatic
+
+	column flag_san_valentin
+		dataType: int64
+		formatString: 0
+		lineageTag: 43ddd7db-9d14-49ef-a8fc-b0c06da4cd54
+		summarizeBy: sum
+		sourceColumn: flag_san_valentin
+
+		annotation SummarizationSetBy = Automatic
+
+	column flag_dia_madre
+		dataType: int64
+		formatString: 0
+		lineageTag: 864b7afe-69a3-40ea-8d96-922dbaee13c1
+		summarizeBy: sum
+		sourceColumn: flag_dia_madre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'gold feat_demanda_forecasting' = m
+		mode: import
+		source =
+				let
+				    Origen = PostgreSQL.Database("localhost:5433", "floricola"),
+				    gold_feat_demanda_forecasting = Origen{[Schema="gold",Item="feat_demanda_forecasting"]}[Data]
+				in
+				    gold_feat_demanda_forecasting
+
+	annotation PBI_ResultType = Table
+

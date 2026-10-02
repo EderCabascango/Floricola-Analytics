@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "floricola_dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "e49b284f-a089-4424-83cf-fe0a2aa05cc9"
+  }
+}

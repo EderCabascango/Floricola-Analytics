@@ -1,0 +1,112 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 549,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 345,
+            "y": 13
+          },
+          "nodeIndex": "gold dm_cliente_rfm",
+          "nodeLineageTag": "3747bdad-1452-409f-9c0b-ebe4789be958",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 702,
+            "y": 29
+          },
+          "nodeIndex": "gold dm_estacionalidad_semanal",
+          "nodeLineageTag": "960ed1c8-c03c-43ca-a2a8-4a0161c00974",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16,
+            "y": 12
+          },
+          "nodeIndex": "gold dm_rendimiento_campo",
+          "nodeLineageTag": "d8394dd5-7421-41f3-aac2-9855f63206e6",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5,
+            "y": 381
+          },
+          "nodeIndex": "gold dm_ventas_mensual",
+          "nodeLineageTag": "c3e9f4c1-30ff-4368-aeda-4be5c0b8b4d4",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 711,
+            "y": 613
+          },
+          "nodeIndex": "gold feat_demanda_forecasting",
+          "nodeLineageTag": "74c0fd75-5804-407b-86fd-7242cb0ed891",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 340,
+            "y": 432
+          },
+          "nodeIndex": "Dim_Date",
+          "nodeLineageTag": "17dd0e50-7d09-4471-a357-f5c04c4dd42c",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 990,
+            "y": 354.5
+          },
+          "nodeIndex": "_Medidas",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas las tablas",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas las tablas",
+  "defaultDiagram": "Todas las tablas"
+}

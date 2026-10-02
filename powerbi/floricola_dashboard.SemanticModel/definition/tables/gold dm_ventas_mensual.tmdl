@@ -1,0 +1,130 @@
+table 'gold dm_ventas_mensual'
+	lineageTag: c3e9f4c1-30ff-4368-aeda-4be5c0b8b4d4
+
+	column mes
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3877a6c6-2553-4c2a-870f-efe3a4ca7adc
+		summarizeBy: none
+		sourceColumn: mes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column anio
+		dataType: int64
+		formatString: 0
+		lineageTag: 01ac4651-d45f-41e5-b636-c71d05405830
+		summarizeBy: sum
+		sourceColumn: anio
+
+		annotation SummarizationSetBy = Automatic
+
+	column mes_numero
+		dataType: int64
+		formatString: 0
+		lineageTag: 8370ace6-8f52-426c-8700-092684037dc2
+		summarizeBy: sum
+		sourceColumn: mes_numero
+
+		annotation SummarizationSetBy = Automatic
+
+	column variedad_id
+		dataType: int64
+		formatString: 0
+		lineageTag: a44ce3cb-cabf-425f-b6bd-bc8b1c17b084
+		summarizeBy: sum
+		sourceColumn: variedad_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column variedad_nombre
+		dataType: string
+		lineageTag: d7abf59b-328f-4b18-bf27-cd893634b3f2
+		summarizeBy: none
+		sourceColumn: variedad_nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column variedad_tipo
+		dataType: string
+		lineageTag: cca363e2-a059-4186-ad96-f2c340df2852
+		summarizeBy: none
+		sourceColumn: variedad_tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	column variedad_color
+		dataType: string
+		lineageTag: 6add0fb0-81c0-4387-abe6-49ef0a18c95b
+		summarizeBy: none
+		sourceColumn: variedad_color
+
+		annotation SummarizationSetBy = Automatic
+
+	column pais_destino
+		dataType: string
+		lineageTag: ee87400e-5540-4526-8cf0-99c4a8e2e5d8
+		summarizeBy: none
+		sourceColumn: pais_destino
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_cliente
+		dataType: string
+		lineageTag: 1c8c1d63-0787-48f6-b05c-0a619fa011db
+		summarizeBy: none
+		sourceColumn: tipo_cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_transacciones
+		dataType: int64
+		formatString: 0
+		lineageTag: cbde0e5d-c478-4acb-a1bb-f123f9200bf9
+		summarizeBy: sum
+		sourceColumn: total_transacciones
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_tallos
+		dataType: int64
+		formatString: 0
+		lineageTag: c0ab4fc0-4415-4852-8f72-fd578c45b375
+		summarizeBy: sum
+		sourceColumn: total_tallos
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_valor_ventas
+		dataType: double
+		lineageTag: be7b488d-3c9d-437b-8117-92d138777a77
+		summarizeBy: sum
+		sourceColumn: total_valor_ventas
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column precio_promedio_ponderado
+		dataType: double
+		lineageTag: d2daaf3b-afbe-4cf4-98e5-3287371b5657
+		summarizeBy: sum
+		sourceColumn: precio_promedio_ponderado
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'gold dm_ventas_mensual' = m
+		mode: import
+		source =
+				let
+				    Origen = PostgreSQL.Database("localhost:5433", "floricola"),
+				    gold_dm_ventas_mensual = Origen{[Schema="gold",Item="dm_ventas_mensual"]}[Data]
+				in
+				    gold_dm_ventas_mensual
+
+	annotation PBI_ResultType = Table
+

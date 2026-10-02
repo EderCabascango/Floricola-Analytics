@@ -1,0 +1,57 @@
+table _Medidas
+	lineageTag: 33584525-01b9-40c5-98ff-7d015403ba43
+
+	measure 'Total Ventas' = SUM('gold dm_ventas_mensual'[total_valor_ventas])
+		lineageTag: 89584d00-5641-4546-a35c-4f28a833a460
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Tallos' = SUM('gold dm_ventas_mensual'[total_tallos])
+		formatString: 0
+		lineageTag: e456bd0c-7ae0-42d5-b330-00e6b86e726c
+
+	measure 'Precio Promedio Ponderado' = DIVIDE([Total Ventas], [Total Tallos])
+		lineageTag: a91708f6-97aa-4e5e-ad23-72482a17227b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ventas Año Anterior' = CALCULATE([Total Ventas], SAMEPERIODLASTYEAR('Dim_Date'[Date]))
+		lineageTag: c1c6d49a-b18d-4a6f-8fa8-362e23e8e382
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Crecimiento YoY' = DIVIDE([Total Ventas] - [Ventas Año Anterior], [Ventas Año Anterior])
+		lineageTag: f793fcbd-e9e1-40e3-ad2d-ea092de19ffa
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ventas Mes Anterior' = CALCULATE([Total Ventas], DATEADD('Dim_Date'[Date], -1, MONTH))
+		lineageTag: 8b847072-eab8-4337-b968-b9058473491d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Crecimiento MoM' =
+			
+			DIVIDE(
+			    [Total Ventas] - [Ventas Mes Anterior],
+			    [Ventas Mes Anterior]
+			)
+		lineageTag: 83467924-04c2-4342-bde9-dc0a98730be3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Value
+		formatString: 0
+		lineageTag: e04a949f-377c-47a3-9a34-09b7fdbeab17
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Medidas = calculated
+		mode: import
+		source = {1}
+
+	annotation PBI_Id = 0759839d671b40f983cb817d6933348b
+
