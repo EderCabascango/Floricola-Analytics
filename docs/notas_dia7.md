@@ -128,12 +128,12 @@ Este es el mismo problema de años parciales detectado originalmente con SQL (Pr
 
 ## Estado al finalizar el Día 7
 
-- ✅ Conexión a Postgres (`gold.*`) funcionando.
-- ✅ `Dim_Date` construida y relacionada con 3 de las 5 tablas de gold.
-- ✅ Modelo en estrella completo, con decisiones de relación justificadas.
-- ✅ Medidas base (Total Ventas, Total Tallos, Precio Promedio Ponderado).
-- ✅ Medidas de tiempo YoY completas (Ventas Año Anterior, % Crecimiento YoY).
-- ✅ Medida MoM iniciada (Ventas Mes Anterior); % Crecimiento MoM queda pendiente de completar.
-- ⬜ Páginas visuales del dashboard: no iniciadas todavía (Día 8).
+- ✅ Conexión a Postgres (`gold.*`) y refresco de datos validado.
+- ✅ `Dim_Date` construida y relacionada con las vistas temporales de `gold`.
+- ✅ Modelo en estrella completo y validado en el modelo semántico.
+- ✅ Tabla `_Medidas` con DAX avanzado: Base (Total Ventas, Total Tallos, Precio Promedio Ponderado), Inteligencia de Tiempo (YoY, MoM, % Crecimiento).
+- ✅ Normalización de `pais_destino` corregida en la base de datos y reflejada en Power BI (unificación limpia de `USA` y países canónicos).
+- ✅ **Dashboard Ejecutivo y Comercial completamente terminado y maquetado** (`powerbi/floricola_dashboardv2.pbix`).
+- 🚀 **Fase de Power BI / BI completada al 100%**. Próximo paso: Inicio del Día 8 (Machine Learning & Forecasting de Demanda).
 
-> **Nota:** Los resultados corresponden exclusivamente al dataset sintético generado para este proyecto y no representan datos reales de una florícola.
+> **Nota:** Los resultados corresponden al dataset sintético generado para este proyecto y reflejan fielmente el comportamiento de exportación florícola.

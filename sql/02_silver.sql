@@ -49,7 +49,17 @@ CREATE OR REPLACE VIEW silver.dim_cliente AS
 SELECT
     c.cliente_id,
     INITCAP(TRIM(c.nombre)) AS nombre,
-    TRIM(UPPER(c.pais_destino)) AS pais_destino,
+    CASE
+        -- Normalizar todas las variantes de Estados Unidos (USA, U.S.A., Usa, usa, etc.)
+        WHEN UPPER(REPLACE(TRIM(c.pais_destino), '.', '')) IN ('USA', 'ESTADOS UNIDOS') THEN 'USA'
+        -- Normalizar variantes con o sin tildes / caracteres especiales
+        WHEN INITCAP(TRIM(c.pais_destino)) LIKE 'Pa%ses Bajos' THEN 'Países Bajos'
+        WHEN INITCAP(TRIM(c.pais_destino)) LIKE 'Espa%a' THEN 'España'
+        WHEN INITCAP(TRIM(c.pais_destino)) LIKE 'Canad%' THEN 'Canadá'
+        WHEN INITCAP(TRIM(c.pais_destino)) = 'Reino Unido' THEN 'Reino Unido'
+        WHEN INITCAP(TRIM(c.pais_destino)) = 'Rusia' THEN 'Rusia'
+        ELSE INITCAP(TRIM(c.pais_destino))
+    END AS pais_destino,
     TRIM(c.tipo) AS tipo
 FROM bronze.cliente AS c
 INNER JOIN silver.cliente_mapping AS m
